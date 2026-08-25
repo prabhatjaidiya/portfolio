@@ -1,38 +1,54 @@
 const projects = [
   {
     number: '01',
-    category: 'Featured Project',
+    category: 'Finance / Dashboard',
+    title: 'Expense Tracker',
+    status: 'LIVE',
+    description:
+      'A responsive personal finance dashboard designed to track expenses, manage budgets and visualize spending patterns through interactive financial insights.',
+    technologies: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Recharts',
+      'Context API',
+      'Local Storage',
+    ],
+    image: 'expense-tracker',
+    liveUrl: 'https://expense-tracker-lovat-pi.vercel.app/',
+    githubUrl: 'https://github.com/prabhatjaidiya/Expense-Tracker',
+  },
+
+  {
+    number: '02',
+    category: 'Weather / API',
     title: 'Weather App',
     status: 'LIVE',
     description:
-      'A responsive weather application providing real-time weather conditions, forecasts and location-based weather information through a weather API.',
-    technologies: ['React', 'JavaScript', 'Tailwind CSS', 'REST API'],
+      'A responsive weather application that delivers real-time conditions, forecasts and location-based insights through weather APIs, with a focus on clear data visualization and usability.',
+    technologies: [
+      'React',
+      'JavaScript',
+      'Tailwind CSS',
+      'REST API',
+    ],
     image: 'weather',
     liveUrl: 'https://weather-app-7cfd.vercel.app/',
     githubUrl: 'https://github.com/prabhatjaidiya/Weather-App',
   },
 
   {
-    number: '02',
-    category: 'Frontend',
-    title: 'E-commerce',
-    status: 'IN DEVELOPMENT',
-    description:
-      'A modern responsive shopping interface focused on clean UI, product browsing and smooth user interactions.',
-    technologies: ['React', 'JavaScript', 'Tailwind CSS'],
-    image: 'ecommerce',
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-
-  {
     number: '03',
-    category: 'Web Application',
+    category: 'Productivity / Web App',
     title: 'Todo App',
     status: 'IN DEVELOPMENT',
     description:
-      'A clean task management application with interactive task controls and persistent browser storage.',
-    technologies: ['React', 'JavaScript', 'Local Storage'],
+      'A focused task management application built around simple interactions, persistent local storage and a responsive interface for organizing everyday tasks.',
+    technologies: [
+      'React',
+      'JavaScript',
+      'Local Storage',
+    ],
     image: 'todo',
     liveUrl: '#',
     githubUrl: '#',
@@ -40,12 +56,16 @@ const projects = [
 
   {
     number: '04',
-    category: 'Web Application',
+    category: 'Entertainment / API',
     title: 'Movie Search',
     status: 'IN DEVELOPMENT',
     description:
-      'A movie discovery application that allows users to search and explore movies using an external API.',
-    technologies: ['JavaScript', 'API', 'CSS'],
+      'A movie discovery experience that uses an external API to search, retrieve and present movie information through a dynamic and responsive interface.',
+    technologies: [
+      'JavaScript',
+      'REST API',
+      'CSS',
+    ],
     image: 'movie',
     liveUrl: '#',
     githubUrl: '#',

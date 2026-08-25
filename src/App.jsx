@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import GlobalGlow from './components/GlobalGlow'
+import Skills from './components/Skills'
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
 
         <main>
           <Hero />
-          <Projects />
           <About />
+          <Skills />
+          <Projects />
           <Experience />
           <Contact />
         </main>

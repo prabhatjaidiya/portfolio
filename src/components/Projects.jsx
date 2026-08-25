@@ -1,4 +1,3 @@
-import { motion } from 'motion/react'
 import projects from '../data/projects'
 import ProjectCard from './ProjectCard'
 
@@ -6,7 +5,7 @@ function Projects() {
     return (
         <section
             id="work"
-            className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48"
+            className="px-5 py-10 sm:px-6 md:px-10"
         >
             {/* Section heading */}
             <div className="mb-16 flex items-end justify-between border-b border-white/10 pb-5 md:mb-24">
@@ -24,11 +23,10 @@ function Projects() {
                 <p className="hidden text-xs uppercase tracking-[0.2em] text-white/30 md:block">
                     {projects.length} Projects
                 </p>
-
             </div>
 
             {/* Projects */}
-            <div>
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-6">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.number}
@@ -36,7 +34,6 @@ function Projects() {
                     />
                 ))}
             </div>
-
         </section>
     )
 }
