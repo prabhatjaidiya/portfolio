@@ -6,9 +6,7 @@ The portfolio focuses on clean typography, subtle animations, interactive elemen
 
 ## Live Website
 
-🌐 **Portfolio:** https://your-portfolio-url.vercel.app/
-
-> Replace the URL above with your actual deployed portfolio URL.
+🌐 **Portfolio:** https://portfolio-mocha-xi-f9ohsuh54e.vercel.app/
 
 ---
 

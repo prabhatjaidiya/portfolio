@@ -21,22 +21,28 @@ function ProjectPreview({ type }) {
                     </div>
 
                     <div className="grid h-[calc(100%-65px)] grid-cols-2 gap-3 pt-5 md:grid-cols-4">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div
-                                key={item}
-                                className="flex flex-col justify-end rounded bg-white/[0.04] p-3"
-                            >
-                                <div className="mb-3 flex-1 rounded bg-white/[0.04]" />
+                        {['Minimal Tee', 'Daily Pack', 'Studio Chair', 'Classic Watch'].map(
+                            (product, index) => (
+                                <div
+                                    key={product}
+                                    className="flex flex-col justify-end rounded bg-white/[0.04] p-3"
+                                >
+                                    <div className="mb-3 flex flex-1 items-center justify-center rounded bg-white/[0.04]">
+                                        <span className="text-[9px] text-white/10">
+                                            PRODUCT 0{index + 1}
+                                        </span>
+                                    </div>
 
-                                <p className="text-[10px] text-white/60">
-                                    Product {item}
-                                </p>
+                                    <p className="text-[10px] text-white/60">
+                                        {product}
+                                    </p>
 
-                                <p className="mt-1 text-[10px] text-white/30">
-                                    $129
-                                </p>
-                            </div>
-                        ))}
+                                    <p className="mt-1 text-[10px] text-white/30">
+                                        $129
+                                    </p>
+                                </div>
+                            )
+                        )}
                     </div>
 
                 </div>
@@ -44,53 +50,71 @@ function ProjectPreview({ type }) {
         )
     }
 
-    if (type === 'todo') {
+    if (type === 'job-tracker') {
         return (
             <div className="h-full w-full bg-[#101010] p-6 md:p-10">
-                <div className="mx-auto h-full max-w-3xl rounded border border-white/10 bg-[#0a0a0a] p-5 md:p-8">
+                <div className="mx-auto h-full max-w-5xl rounded border border-white/10 bg-[#0a0a0a] p-5 md:p-7">
 
                     <div className="flex items-center justify-between border-b border-white/10 pb-5">
                         <div>
-                            <p className="text-xs uppercase tracking-widest text-white/30">
-                                Workspace
+                            <p className="text-[9px] uppercase tracking-widest text-white/30">
+                                Career Dashboard
                             </p>
 
                             <h4 className="mt-2 text-xl font-medium">
-                                My Tasks
+                                Applications
                             </h4>
                         </div>
 
                         <span className="rounded border border-white/10 px-3 py-2 text-[10px] text-white/40">
-                            + Add Task
+                            + Add Application
                         </span>
                     </div>
 
-                    <div className="mt-6 space-y-3">
+                    <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
                         {[
-                            'Build portfolio',
-                            'Finish weather app',
-                            'Practice React',
-                            'Learn Node.js',
-                        ].map((task, index) => (
+                            ['Applied', '24'],
+                            ['Interview', '08'],
+                            ['Offers', '03'],
+                            ['Rejected', '09'],
+                        ].map(([label, value]) => (
                             <div
-                                key={task}
-                                className="flex items-center gap-3 border border-white/10 p-4"
+                                key={label}
+                                className="rounded border border-white/10 p-4"
                             >
-                                <span
-                                    className={`h-3 w-3 rounded-full border ${index === 0
-                                            ? 'border-white bg-white'
-                                            : 'border-white/20'
-                                        }`}
-                                />
+                                <p className="text-[9px] uppercase tracking-widest text-white/30">
+                                    {label}
+                                </p>
 
-                                <span
-                                    className={
-                                        index === 0
-                                            ? 'text-sm text-white/30 line-through'
-                                            : 'text-sm text-white/60'
-                                    }
-                                >
-                                    {task}
+                                <p className="mt-3 text-2xl font-medium text-white/80">
+                                    {value}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-5 space-y-2">
+                        {[
+                            ['Frontend Developer', 'Google', 'Interview'],
+                            ['React Developer', 'Microsoft', 'Applied'],
+                            ['Software Engineer', 'Stripe', 'Applied'],
+                        ].map(([role, company, status]) => (
+                            <div
+                                key={`${role}-${company}`}
+                                className="flex items-center justify-between border border-white/10 p-3"
+                            >
+                                <div>
+                                    <p className="text-[10px] text-white/70">
+                                        {role}
+                                    </p>
+
+                                    <p className="mt-1 text-[9px] text-white/30">
+                                        {company}
+                                    </p>
+                                </div>
+
+                                <span className="text-[9px] uppercase tracking-wider text-white/40">
+                                    {status}
                                 </span>
                             </div>
                         ))}
@@ -101,46 +125,190 @@ function ProjectPreview({ type }) {
         )
     }
 
-    if (type === 'movie') {
+    if (type === 'collaboration') {
         return (
             <div className="h-full w-full bg-[#111] p-6 md:p-10">
-                <div className="h-full rounded border border-white/10 bg-[#080808] p-5 md:p-8">
+                <div className="flex h-full overflow-hidden rounded border border-white/10 bg-[#080808]">
 
-                    <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium">
-                            MOVIE.
-                        </span>
+                    <aside className="hidden w-1/4 border-r border-white/10 p-5 md:block">
+                        <p className="text-xs font-medium">
+                            WORKSPACE
+                        </p>
 
-                        <div className="flex w-1/2 items-center rounded border border-white/10 px-4 py-2">
-                            <span className="text-[10px] text-white/30">
-                                Search movies...
+                        <div className="mt-6 space-y-3">
+                            <div className="text-[10px] text-white/60">
+                                General
+                            </div>
+
+                            <div className="text-[10px] text-white/30">
+                                Design Team
+                            </div>
+
+                            <div className="text-[10px] text-white/30">
+                                Development
+                            </div>
+
+                            <div className="text-[10px] text-white/30">
+                                Marketing
+                            </div>
+                        </div>
+                    </aside>
+
+                    <main className="flex flex-1 flex-col">
+
+                        <div className="border-b border-white/10 p-5">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-[9px] uppercase tracking-widest text-white/30">
+                                        Project
+                                    </p>
+
+                                    <h4 className="mt-1 text-sm font-medium">
+                                        Portfolio Launch
+                                    </h4>
+                                </div>
+
+                                <div className="flex -space-x-2">
+                                    {[1, 2, 3, 4].map((user) => (
+                                        <span
+                                            key={user}
+                                            className="flex h-7 w-7 items-center justify-center rounded-full border border-[#080808] bg-white/[0.08] text-[8px] text-white/40"
+                                        >
+                                            {user}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid flex-1 grid-cols-2 gap-3 p-5 md:grid-cols-3">
+                            {[
+                                ['Planning', '03'],
+                                ['In Progress', '05'],
+                                ['Completed', '08'],
+                            ].map(([title, count]) => (
+                                <div
+                                    key={title}
+                                    className="rounded border border-white/10 bg-white/[0.02] p-3"
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-[9px] uppercase tracking-widest text-white/30">
+                                            {title}
+                                        </span>
+
+                                        <span className="text-[9px] text-white/20">
+                                            {count}
+                                        </span>
+                                    </div>
+
+                                    <div className="mt-4 space-y-2">
+                                        {[1, 2].map((task) => (
+                                            <div
+                                                key={task}
+                                                className="rounded border border-white/10 p-3"
+                                            >
+                                                <div className="h-1.5 w-3/4 rounded bg-white/10" />
+                                                <div className="mt-2 h-1.5 w-1/2 rounded bg-white/5" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </main>
+
+                </div>
+            </div>
+        )
+    }
+
+    if (type === 'chat') {
+        return (
+            <div className="h-full w-full bg-[#101010] p-6 md:p-10">
+                <div className="mx-auto flex h-full max-w-4xl overflow-hidden rounded border border-white/10 bg-[#080808]">
+
+                    <aside className="hidden w-1/3 border-r border-white/10 md:block">
+                        <div className="border-b border-white/10 p-5">
+                            <span className="text-sm font-medium">
+                                CHAT.
                             </span>
                         </div>
-                    </div>
 
-                    <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
-                        {[
-                            'INTERSTELLAR',
-                            'INCEPTION',
-                            'DUNE',
-                            'BATMAN',
-                        ].map((movie) => (
-                            <div
-                                key={movie}
-                                className="group flex aspect-[2/3] flex-col justify-end rounded bg-white/[0.04] p-3"
-                            >
-                                <div className="flex-1" />
+                        <div className="space-y-1 p-3">
+                            {[
+                                ['Alex Morgan', 'Are we ready to ship?'],
+                                ['Development Team', 'New update deployed'],
+                                ['Sarah Wilson', 'See you tomorrow'],
+                            ].map(([name, message], index) => (
+                                <div
+                                    key={name}
+                                    className={`rounded p-3 ${index === 0
+                                        ? 'bg-white/[0.06]'
+                                        : ''
+                                        }`}
+                                >
+                                    <p className="text-[10px] text-white/60">
+                                        {name}
+                                    </p>
 
-                                <p className="text-[9px] tracking-wider text-white/60">
-                                    {movie}
-                                </p>
+                                    <p className="mt-1 truncate text-[9px] text-white/25">
+                                        {message}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </aside>
 
-                                <p className="mt-1 text-[8px] text-white/30">
-                                    Movie
+                    <main className="flex flex-1 flex-col">
+
+                        <div className="border-b border-white/10 p-5">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-xs font-medium">
+                                        Alex Morgan
+                                    </p>
+
+                                    <p className="mt-1 text-[9px] text-white/30">
+                                        ● Online
+                                    </p>
+                                </div>
+
+                                <span className="text-[9px] uppercase tracking-widest text-white/20">
+                                    Online
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-1 flex-col justify-end gap-3 p-5">
+                            <div className="max-w-[70%] rounded border border-white/10 p-3">
+                                <p className="text-[9px] text-white/50">
+                                    Hey! How is the project going?
                                 </p>
                             </div>
-                        ))}
-                    </div>
+
+                            <div className="ml-auto max-w-[70%] rounded bg-white/[0.08] p-3">
+                                <p className="text-[9px] text-white/60">
+                                    Almost finished. I'll send you an update soon.
+                                </p>
+                            </div>
+
+                            <div className="max-w-[70%] rounded border border-white/10 p-3">
+                                <p className="text-[9px] text-white/50">
+                                    Perfect. Looking forward to it!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="border-t border-white/10 p-4">
+                            <div className="rounded border border-white/10 px-4 py-3">
+                                <span className="text-[9px] text-white/20">
+                                    Type a message...
+                                </span>
+                            </div>
+                        </div>
+
+                    </main>
 
                 </div>
             </div>
