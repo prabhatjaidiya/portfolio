@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from 'motion/react'
 
 const links = [
     {
-        name: 'About',
-        href: '#about',
+        name: 'Work',
+        href: '#work',
     },
     {
         name: 'Skills',
         href: '#skills',
     },
     {
-        name: 'Work',
-        href: '#work',
+        name: 'About',
+        href: '#about',
     },
     {
         name: 'Contact',

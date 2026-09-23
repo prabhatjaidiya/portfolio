@@ -1,198 +1,151 @@
+
 import { motion } from 'motion/react'
+
+const focusAreas = [
+    'React',
+    'JavaScript',
+    'Tailwind CSS',
+    'REST APIs',
+    'Node.js',
+    'Full-Stack Development',
+]
 
 function About() {
     return (
         <section
             id="about"
-            className="border-t border-white/10 px-6 py-10 md:px-10"
+            className="border-t border-white/10 px-6 py-24 md:px-10 lg:py-32"
         >
+            <div className="mx-auto max-w-[1600px]">
 
-            <div className="grid items-start gap-16 lg:grid-cols-12 lg:gap-10">
+                {/* Section label */}
+                <p className="mb-12 text-xs uppercase tracking-[0.2em] text-white/40">
+                    02 — About
+                </p>
 
-                {/* LEFT — Sticky statement */}
-                <div className="self-start lg:sticky lg:top-20 lg:col-span-7">
+                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
 
-                    <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/40">
-                        02 — About
-                    </p>
+                    {/* LEFT — Statement */}
+                    <div className="lg:col-span-7">
+                        <h2 className="text-[12vw] font-medium leading-[0.85] tracking-[-0.07em] md:text-[8vw] lg:text-[7vw]">
+                            I BUILD
+                            <br />
+                            DIGITAL
+                            <br />
+                            <span className="text-white/30">
+                                EXPERIENCES.
+                            </span>
+                        </h2>
 
-                    <h2 className="text-[12vw] font-medium leading-[0.85] tracking-[-0.07em] md:text-[8vw]">
-                        I BUILD
-                        <br />
-                        DIGITAL
-                        <br />
-                        EXPERIENCES.
-                    </h2>
-
-                </div>
-
-
-                {/* RIGHT — About content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{
-                        once: true,
-                        amount: 0.2,
-                    }}
-                    transition={{
-                        duration: 0.8,
-                        delay: 0.15,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="md:col-span-5 lg:col-start-8"
-                >
-                    <div className="max-w-xl">
-
-                        {/* Introduction */}
-                        <p className="text-base leading-8 text-white/70 md:text-lg">
-                            I'm a frontend developer focused on building
-                            modern, responsive and interactive digital
-                            experiences. I enjoy turning ideas into interfaces
-                            that are clear, purposeful and engaging.
+                        {/* Small supporting line */}
+                        <p className="mt-8 max-w-md text-sm leading-7 text-white/40 md:text-base">
+                            Turning ideas into clean, responsive and
+                            interactive web experiences.
                         </p>
-
-                        <p className="mt-7 text-base leading-8 text-white/50 md:text-lg">
-                            I care about more than how an interface looks.
-                            I focus on creating experiences that feel intuitive,
-                            perform well and work seamlessly across different
-                            screen sizes and devices.
-                        </p>
-
-                        <p className="mt-7 text-base leading-8 text-white/50 md:text-lg">
-                            My primary tools are JavaScript and React. I use
-                            component-based architecture, modern CSS and
-                            REST APIs to build practical applications and
-                            turn complex requirements into maintainable
-                            interfaces.
-                        </p>
-
-                        <p className="mt-7 text-base leading-8 text-white/50 md:text-lg">
-                            Through projects such as weather applications,
-                            expense management systems and other interactive
-                            web applications, I've developed experience with
-                            API integration, state management, responsive
-                            layouts and data-driven interfaces.
-                        </p>
-
-                        <p className="mt-7 text-base leading-8 text-white/50 md:text-lg">
-                            I'm also studying Mathematical Science at Delhi
-                            University. This background has strengthened the
-                            way I approach problems — breaking complex ideas
-                            into smaller parts, identifying patterns and
-                            working toward practical solutions.
-                        </p>
-
-                        <p className="mt-7 text-base leading-8 text-white/50 md:text-lg">
-                            I'm currently expanding my knowledge beyond the
-                            frontend and learning backend technologies with
-                            the goal of becoming capable of building complete,
-                            scalable web applications.
-                        </p>
-
-
-                        {/* Development approach */}
-                        <div className="mt-16 border-t border-white/10 pt-8">
-
-                            <p className="mb-8 text-xs uppercase tracking-[0.2em] text-white/30">
-                                How I Work
-                            </p>
-
-                            <div className="space-y-7">
-
-                                <div className="flex gap-5">
-                                    <span className="shrink-0 text-xs text-white/20">
-                                        01
-                                    </span>
-
-                                    <div>
-                                        <h3 className="mb-2 text-sm font-medium text-white/70">
-                                            Understand
-                                        </h3>
-
-                                        <p className="text-sm leading-7 text-white/40">
-                                            Start by understanding the problem,
-                                            users and requirements before
-                                            deciding how to build the solution.
-                                        </p>
-                                    </div>
-                                </div>
-
-
-                                <div className="flex gap-5">
-                                    <span className="shrink-0 text-xs text-white/20">
-                                        02
-                                    </span>
-
-                                    <div>
-                                        <h3 className="mb-2 text-sm font-medium text-white/70">
-                                            Build
-                                        </h3>
-
-                                        <p className="text-sm leading-7 text-white/40">
-                                            Build clean, reusable components
-                                            with a strong focus on responsive
-                                            design, accessibility and usability.
-                                        </p>
-                                    </div>
-                                </div>
-
-
-                                <div className="flex gap-5">
-                                    <span className="shrink-0 text-xs text-white/20">
-                                        03
-                                    </span>
-
-                                    <div>
-                                        <h3 className="mb-2 text-sm font-medium text-white/70">
-                                            Refine
-                                        </h3>
-
-                                        <p className="text-sm leading-7 text-white/40">
-                                            Test, iterate and improve the
-                                            experience until the details feel
-                                            intentional and the interface works
-                                            as it should.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        {/* Current focus */}
-                        <div className="mt-16 border-t border-white/10 pt-8">
-
-                            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-white/30">
-                                Current Focus
+                        {/* Current Focus */}
+                        <div className="mt-10 border-t border-white/10 pt-8">
+                            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/30">
+                                Currently Exploring
                             </p>
 
                             <div className="flex flex-wrap gap-2">
-
-                                {[
-                                    'React',
-                                    'JavaScript',
-                                    'Frontend Architecture',
-                                    'REST APIs',
-                                    'Node.js',
-                                    'Full-Stack Development',
-                                ].map((item) => (
+                                {focusAreas.map((item) => (
                                     <span
                                         key={item}
-                                        className="border border-white/10 px-3 py-2 text-xs text-white/40 transition-colors duration-300 hover:border-white/30 hover:text-white"
+                                        className="border border-white/10 px-3 py-2 text-xs text-white/50 transition-all duration-300 hover:border-violet-400/50 hover:text-violet-300"
                                     >
                                         {item}
                                     </span>
                                 ))}
+                            </div>
+                        </div>
+                    </div>
 
+                    {/* RIGHT — Content */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.2,
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="lg:col-span-5 lg:pt-2"
+                    >
+                        <div className="max-w-xl">
+
+                            {/* Introduction */}
+                            <p className="text-lg leading-8 text-white/70 md:text-xl">
+                                I'm Prabhat, a frontend developer
+                                passionate about building modern,
+                                user-friendly digital experiences
+                                with React and JavaScript.
+                            </p>
+
+                            <p className="mt-6 text-base leading-7 text-white/45">
+                                I'm studying Mathematical Science
+                                at Delhi University and expanding
+                                my skills in backend development
+                                to build complete web applications.
+                            </p>
+
+                            {/* Divider */}
+                            <div className="my-10 border-t border-white/10" />
+
+                            {/* Approach */}
+                            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-white/30">
+                                My Approach
+                            </p>
+
+                            <div className="space-y-5">
+
+                                {[
+                                    {
+                                        number: '01',
+                                        title: 'Understand',
+                                        description:
+                                            'Focus on the problem, users and purpose.',
+                                    },
+                                    {
+                                        number: '02',
+                                        title: 'Build',
+                                        description:
+                                            'Create clean, responsive and reusable interfaces.',
+                                    },
+                                    {
+                                        number: '03',
+                                        title: 'Refine',
+                                        description:
+                                            'Test, improve and polish every detail.',
+                                    },
+                                ].map((item) => (
+                                    <div
+                                        key={item.number}
+                                        className="group flex gap-5"
+                                    >
+                                        <span className="pt-1 text-xs text-white/25">
+                                            {item.number}
+                                        </span>
+
+                                        <div>
+                                            <h3 className="text-sm font-medium text-white/80 transition-colors group-hover:text-violet-300">
+                                                {item.title}
+                                            </h3>
+
+                                            <p className="mt-1 text-sm leading-6 text-white/40">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
                         </div>
-
-                    </div>
-                </motion.div>
-
+                    </motion.div>
+                </div>
             </div>
         </section>
     )

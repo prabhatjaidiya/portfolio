@@ -1,6 +1,32 @@
 const projects = [
   {
     number: '01',
+    category: 'Productivity / Full-Stack',
+    title: 'Job / Internship Tracker',
+    status: 'LIVE',
+    description:
+      'A full-stack job and internship management platform for organizing applications, tracking statuses, managing deadlines, and keeping the job search workflow in one place.',
+    technologies: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'React Router',
+      'Node.js',
+      'Express',
+      'TypeScript',
+      'MongoDB',
+      'Mongoose',
+      'JWT',
+      'bcrypt',
+      'REST API',
+    ],
+    image: 'job-tracker',
+    liveUrl: 'https://job-tracker-frontend-26wf.onrender.com',
+    githubUrl: 'https://github.com/prabhatjaidiya/job-tracker',
+  },
+
+  {
+    number: '02',
     category: 'Finance / Dashboard',
     title: 'Expense Tracker',
     status: 'LIVE',
@@ -20,7 +46,7 @@ const projects = [
   },
 
   {
-    number: '02',
+    number: '03',
     category: 'Weather / API',
     title: 'Weather App',
     status: 'LIVE',
@@ -35,26 +61,6 @@ const projects = [
     image: 'weather',
     liveUrl: 'https://weather-app-7cfd.vercel.app/',
     githubUrl: 'https://github.com/prabhatjaidiya/Weather-App',
-  },
-
-  {
-    number: '03',
-    category: 'Productivity / Full-Stack',
-    title: 'Job / Internship Tracker',
-    status: 'IN DEVELOPMENT',
-    description:
-      'A full-stack job and internship management platform for organizing applications, tracking interview progress, managing deadlines and keeping the entire job search workflow in one place.',
-    technologies: [
-      'React',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'JWT',
-      'REST API',
-    ],
-    image: 'job-tracker',
-    liveUrl: '#',
-    githubUrl: '#',
   },
 
   {

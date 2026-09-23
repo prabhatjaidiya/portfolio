@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import bitmoji from '../assets/bitmoji.webp'
+import bitmoji from '../assets/bitmoji.png'
 
 function Hero() {
     const heroRef = useRef(null)
@@ -80,20 +80,7 @@ function Hero() {
         <section
             ref={heroRef}
             id="home"
-            className="
-        relative flex min-h-screen
-        items-end
-        overflow-hidden
-        px-5
-        pb-24
-        pt-28
-
-        sm:px-6
-        sm:pb-28
-
-        lg:px-10
-        lg:pb-10
-    "
+            className="relative flex xl:h-screen items-end overflow-hidden px-5 pt-28 sm:px-6 lg:px-10"
         >
 
             {/* ─────────────────────────────────────
@@ -107,22 +94,7 @@ function Hero() {
                     rotate: avatarRotate,
                     opacity: avatarOpacity,
                 }}
-                className="
-    pointer-events-none
-    absolute
-    right-[-5%]
-    top-[8%]
-    z-[1]
-    w-[55vw]
-    max-w-[500px]
-
-    sm:right-[-2%]
-    sm:w-[50vw]
-
-    lg:right-[2%]
-    lg:top-[5%]
-    lg:w-[38vw]
-    lg:max-w-[650px]
+                className="pointer-events-none absolute right-[-5%] top-[8%] z-[1] w-[55vw] max-w-[500px] sm:right-[-2%] sm:w-[50vw] lg:right-[2%] lg:top-[5%] lg:w-[38vw] lg:max-w-[650px]
 "
             >
                 <motion.img
@@ -148,40 +120,6 @@ function Hero() {
 
             <div className="relative z-10 w-full">
 
-                {/* Introduction */}
-                <motion.div
-                    initial={{
-                        opacity: 0,
-                        y: 30,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    transition={{
-                        duration: 0.8,
-                        delay: 0.7,
-                    }}
-                    className="
-    hidden
-    max-w-md
-    text-sm
-    leading-relaxed
-    text-white/50
-
-    lg:absolute
-    lg:bottom-3
-    lg:right-0
-"
-                >
-                    <p className="hidden md:block">
-                        Frontend developer focused on building
-                        thoughtful, responsive and interactive
-                        digital experiences.
-                    </p>
-                </motion.div>
-
-
                 {/* Main typography */}
                 <motion.h1
                     style={{
@@ -191,12 +129,12 @@ function Hero() {
                     }}
                     className="
     relative z-10 overflow-hidden
-    text-[17vw]
+    text-[12vw]
     font-semibold
     leading-[0.78]
     tracking-[-0.07em]
 
-    sm:text-[15vw]
+    sm:text-[12vw]
 
     lg:text-[13vw]
 "
@@ -239,13 +177,13 @@ function Hero() {
                         <p
                             className="
         whitespace-nowrap
-        text-[5.8vw]
+        text-[4.2vw]
         font-medium
         leading-none
         tracking-[-0.025em]
         text-white/50
 
-        sm:text-[5.8vw]
+        sm:text-[4.5vw]
 
         lg:text-[2.5vw]
     "
