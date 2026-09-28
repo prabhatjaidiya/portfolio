@@ -5,19 +5,19 @@ const journey = [
         year: '2026',
         title: 'Frontend Development',
         description:
-            'Focused on building modern, responsive interfaces with React, JavaScript and Tailwind CSS, while developing a strong foundation in component-based architecture and frontend best practices.',
+            'Built a strong foundation in modern frontend development with React, JavaScript and Tailwind CSS, focusing on responsive interfaces, reusable components and interactive user experiences.',
     },
     {
         year: '2026',
-        title: 'Building Real-World Projects',
+        title: 'Full-Stack Development',
         description:
-            'Developed practical web applications including a weather platform and personal finance dashboard, working with APIs, state management, data visualization and responsive UI development.',
+            'Expanded into backend development with Node.js, Express, TypeScript and MongoDB, building REST APIs, authentication systems and complete full-stack applications such as Job Tracker.',
     },
     {
         year: 'CURRENTLY',
-        title: 'Expanding Into Full-Stack',
+        title: 'Building AI-Powered Applications',
         description:
-            'Expanding beyond frontend development by learning Node.js, Express, databases and backend architecture with the goal of building complete full-stack applications.',
+            'Currently building Prabhat AI while continuing to deepen my full-stack skills across backend architecture, databases and AI-powered application development.',
     },
 ]
 
@@ -47,7 +47,6 @@ function Experience() {
 
             </div>
 
-
             {/* Introduction */}
             <motion.div
                 initial={{
@@ -69,12 +68,10 @@ function Experience() {
             >
                 <p className="text-sm leading-7 text-white/40 md:text-base">
                     My development journey is centered around continuous
-                    learning, building practical applications and gradually
-                    expanding from frontend development toward full-stack
-                    engineering.
+                    learning, building real-world applications and expanding
+                    across frontend, backend and AI development.
                 </p>
             </motion.div>
-
 
             {/* Journey */}
             <div>
@@ -108,7 +105,6 @@ function Experience() {
                             </span>
                         </div>
 
-
                         {/* Title */}
                         <div className="md:col-span-4">
                             <div className="flex items-start gap-4">
@@ -124,7 +120,6 @@ function Experience() {
                             </div>
                         </div>
 
-
                         {/* Description */}
                         <div className="md:col-span-5 md:col-start-8">
                             <p className="max-w-lg text-sm leading-7 text-white/40 transition-colors duration-300 group-hover:text-white/60 md:text-base">
@@ -135,7 +130,6 @@ function Experience() {
                     </motion.article>
                 ))}
             </div>
-
 
             {/* Current status */}
             <motion.div
@@ -160,7 +154,7 @@ function Experience() {
                 </p>
 
                 <p className="text-sm text-white/40">
-                    Frontend Development → Full-Stack Development
+                    Full-Stack Development → AI-Powered Applications
                 </p>
             </motion.div>
 

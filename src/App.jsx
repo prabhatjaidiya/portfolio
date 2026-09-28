@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import GlobalGlow from './components/GlobalGlow'
 import Skills from './components/Skills'
+import PrabhatAI from './components/PrabhatAI'
 
 function App() {
   return (
@@ -21,10 +22,11 @@ function App() {
 
         <main>
           <Hero />
-          <Projects />
-          <Skills />
           <About />
           <Experience />
+          <PrabhatAI />
+          <Projects />
+          <Skills />
           <Contact />
         </main>
 

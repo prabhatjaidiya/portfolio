@@ -4,7 +4,7 @@ const skillGroups = [
     {
         title: 'Frontend',
         description:
-            'Technologies I use to build responsive and interactive web interfaces.',
+            'Technologies I use to build responsive, interactive and modern web interfaces.',
         skills: [
             {
                 name: 'HTML',
@@ -35,9 +35,60 @@ const skillGroups = [
     },
 
     {
-        title: 'Tools & APIs',
+        title: 'Backend',
         description:
-            'Tools I use for development, version control and connecting applications.',
+            'Technologies I use to build server-side applications, APIs and backend services.',
+        skills: [
+            {
+                name: 'Node.js',
+                logo: '/skills/node.png',
+                level: 'Core',
+            },
+            {
+                name: 'Express',
+                logo: '/skills/express.png',
+                level: 'Core',
+            },
+            {
+                name: 'TypeScript',
+                logo: '/skills/typescript.png',
+                level: 'Core',
+            },
+            {
+                name: 'REST APIs',
+                logo: '/skills/api.png',
+                level: 'Core',
+            },
+        ],
+    },
+
+    {
+        title: 'Database & APIs',
+        description:
+            'Technologies I use to store, manage and work with application data.',
+        skills: [
+            {
+                name: 'MongoDB',
+                logo: '/skills/mongodb.png',
+                level: 'Core',
+            },
+            {
+                name: 'Mongoose',
+                logo: '/skills/mongodb.png',
+                level: 'Core',
+            },
+            {
+                name: 'PostgreSQL',
+                logo: '/skills/postgresql.png',
+                level: 'Learning',
+            },
+        ],
+    },
+
+    {
+        title: 'Tools & Workflow',
+        description:
+            'Tools I use for development, version control, project setup and deployment workflows.',
         skills: [
             {
                 name: 'Git',
@@ -50,47 +101,9 @@ const skillGroups = [
                 level: 'Core',
             },
             {
-                name: 'REST APIs',
-                logo: '/skills/api.png',
-                level: 'Core',
-            },
-            {
                 name: 'Vite',
                 logo: '/skills/vite.png',
                 level: 'Core',
-            },
-        ],
-    },
-
-    {
-        title: 'Currently Learning',
-        description:
-            "Technologies I'm learning as I move toward full- stack development.",
-        skills: [
-            {
-                name: 'Node.js',
-                logo: '/skills/node.png',
-                level: 'Learning',
-            },
-            {
-                name: 'Express',
-                logo: '/skills/express.png',
-                level: 'Learning',
-            },
-            {
-                name: 'PostgreSQL',
-                logo: '/skills/postgresql.png',
-                level: 'Learning',
-            },
-            {
-                name: 'MongoDB',
-                logo: '/skills/mongodb.png',
-                level: 'Learning',
-            },
-            {
-                name: 'TypeScript',
-                logo: '/skills/typescript.png',
-                level: 'Learning',
             },
         ],
     },
@@ -98,7 +111,7 @@ const skillGroups = [
 
 function Skills() {
     return (
-        <main className="relative min-h-screen bg-transparent px-6 py-10 text-white md:px-10">
+        <div className="relative min-h-screen bg-transparent px-6 py-10 text-white md:px-10">
 
             {/* Header */}
             <section
@@ -112,7 +125,8 @@ function Skills() {
                 <div className="border-t border-white/10 pt-8">
                     <motion.h1
                         initial={{ opacity: 0, y: 80 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{
                             duration: 1,
                             ease: [0.22, 1, 0.36, 1],
@@ -126,9 +140,7 @@ function Skills() {
                 </div>
 
                 <p className="mt-10 max-w-xl text-sm leading-7 text-white/40 md:text-base">
-                    A collection of technologies, tools and concepts I'm
-                    using to build modern web experiences and continuously
-                    expand my development skills.
+                    A collection of technologies and tools I use to build modern full-stack applications, from responsive interfaces and APIs to databases and backend services.
                 </p>
             </section>
 
@@ -141,7 +153,7 @@ function Skills() {
                         <div className="mb-10 grid gap-6 border-b border-white/10 pb-6 md:grid-cols-12 md:items-end">
                             <div className="md:col-span-2">
                                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/25">
-                                    0{groupIndex + 1} / 03
+                                    {String(groupIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}
                                 </span>
                             </div>
 
@@ -252,7 +264,7 @@ function Skills() {
                     </section>
                 ))}
             </div>
-        </main>
+        </div>
     )
 }
 

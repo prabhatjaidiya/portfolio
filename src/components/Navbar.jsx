@@ -29,10 +29,7 @@ function Navbar() {
 
     return (
         <>
-            {/* ─────────────────────────────────────
-                Navigation
-            ───────────────────────────────────── */}
-
+            {/* Navigation */}
             <motion.nav
                 initial={{
                     opacity: 0,
@@ -59,10 +56,8 @@ function Navbar() {
                         PJ.
                     </a>
 
-
                     {/* Desktop navigation */}
                     <div className="hidden items-center gap-8 md:flex">
-
                         {links.map((link) => (
                             <a
                                 key={link.name}
@@ -71,41 +66,28 @@ function Navbar() {
                             >
                                 {link.name}
 
-                                {/* Animated underline */}
                                 <span className="absolute bottom-0 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
                             </a>
                         ))}
-
                     </div>
-
 
                     {/* Availability */}
                     <div className="hidden items-center gap-3 md:flex">
-
                         <span className="relative flex h-2 w-2">
-                            {/* Green pulse */}
                             <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e] opacity-75" />
-
-                            {/* Solid green dot */}
                             <span className="relative h-2 w-2 rounded-full bg-[#22c55e]" />
                         </span>
 
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">
-                            Available
+                            Open to Full-Stack Opportunities
                         </span>
-
                     </div>
-
 
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="relative z-[60] flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white md:hidden"
-                        aria-label={
-                            menuOpen
-                                ? 'Close menu'
-                                : 'Open menu'
-                        }
+                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={menuOpen}
                     >
                         <span>
@@ -113,7 +95,6 @@ function Navbar() {
                         </span>
 
                         <span className="relative flex h-3 w-4 flex-col justify-center gap-[3px]">
-
                             <motion.span
                                 animate={{
                                     rotate: menuOpen ? 45 : 0,
@@ -135,18 +116,12 @@ function Navbar() {
                                 }}
                                 className="block h-px w-full bg-white"
                             />
-
                         </span>
                     </button>
-
                 </div>
             </motion.nav>
 
-
-            {/* ─────────────────────────────────────
-                Mobile menu
-            ───────────────────────────────────── */}
-
+            {/* Mobile menu */}
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div
@@ -164,7 +139,6 @@ function Navbar() {
                         }}
                         className="fixed inset-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-xl md:hidden"
                     >
-
                         <motion.div
                             initial={{
                                 y: 50,
@@ -184,13 +158,11 @@ function Navbar() {
 
                             {/* Mobile links */}
                             <div>
-
                                 <p className="mb-8 text-[10px] uppercase tracking-[0.25em] text-white/25">
                                     Navigation
                                 </p>
 
                                 <div className="flex flex-col">
-
                                     {links.map((link, index) => (
                                         <motion.a
                                             key={link.name}
@@ -211,7 +183,6 @@ function Navbar() {
                                             }}
                                             className="group flex items-center justify-between border-b border-white/10 py-5"
                                         >
-
                                             <span className="text-5xl font-medium tracking-[-0.05em] transition-transform duration-300 group-hover:translate-x-2">
                                                 {link.name}
                                             </span>
@@ -219,14 +190,10 @@ function Navbar() {
                                             <span className="text-xl text-white/20 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">
                                                 ↗
                                             </span>
-
                                         </motion.a>
                                     ))}
-
                                 </div>
-
                             </div>
-
 
                             {/* Mobile status */}
                             <motion.div
@@ -241,23 +208,17 @@ function Navbar() {
                                 }}
                                 className="border-t border-white/10 pt-6"
                             >
-
                                 <div className="flex items-center gap-3">
                                     <span className="relative block h-2 w-2">
-                                        {/* Green pulse */}
                                         <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e] opacity-75" />
-
-                                        {/* Solid green dot */}
                                         <span className="absolute inset-0 rounded-full bg-[#22c55e]" />
                                     </span>
 
                                     <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
-                                        Available for opportunities
+                                        Open to Full-Stack Opportunities
                                     </span>
                                 </div>
-
                             </motion.div>
-
                         </motion.div>
                     </motion.div>
                 )}

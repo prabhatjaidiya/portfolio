@@ -20,11 +20,10 @@ function Footer() {
                         <span className="h-px w-8 bg-white/10" />
 
                         <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">
-                            Frontend Developer
+                            Full-Stack Developer
                         </p>
 
                     </div>
-
 
                     {/* Availability */}
                     <div className="flex items-center gap-3">
@@ -36,13 +35,12 @@ function Footer() {
                         </span>
 
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
-                            Available for opportunities
+                            Open to Full-Stack Opportunities
                         </span>
 
                     </div>
 
                 </div>
-
 
                 {/* Bottom row */}
                 <div className="flex flex-col gap-4 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.15em] text-white/25 sm:flex-row sm:items-center sm:justify-between">
@@ -67,7 +65,6 @@ function Footer() {
                     </a>
 
                 </div>
-
 
                 {/* Closing statement */}
                 <div className="pt-8">

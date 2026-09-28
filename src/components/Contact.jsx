@@ -27,19 +27,15 @@ function Contact() {
                 </div>
 
                 <span className="hidden text-[10px] uppercase tracking-[0.25em] text-white/20 md:block">
-                    Open to opportunities
+                    Open to Full-Stack Opportunities
                 </span>
 
             </div>
 
-
             {/* Main contact */}
             <div className="grid gap-12 md:grid-cols-2 md:gap-10">
 
-                {/* ─────────────────────────────────────
-        Main CTA — 50%
-    ───────────────────────────────────── */}
-
+                {/* Main CTA */}
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -59,8 +55,9 @@ function Contact() {
                     className="flex min-h-[50vh] flex-col justify-center"
                 >
                     <p className="mb-8 max-w-md text-sm leading-7 text-white/40 md:text-base">
-                        Whether you have a project, an opportunity or simply
-                        want to connect, I'd be happy to hear from you.
+                        Looking for a full-stack developer, have a project
+                        in mind, or simply want to connect? I'd be happy
+                        to hear from you.
                     </p>
 
                     <a
@@ -69,17 +66,17 @@ function Contact() {
                     >
                         <h2
                             className="
-        text-[22vw]
-        font-medium
-        leading-[0.78]
-        tracking-[-0.09em]
-        transition-all
-        duration-700
-        group-hover:translate-x-3
-        group-hover:text-white/70
-        sm:text-[18vw]
-        md:text-[8vw]
-    "
+                                text-[22vw]
+                                font-medium
+                                leading-[0.78]
+                                tracking-[-0.09em]
+                                transition-all
+                                duration-700
+                                group-hover:translate-x-3
+                                group-hover:text-white/70
+                                sm:text-[18vw]
+                                md:text-[8vw]
+                            "
                         >
                             SAY
                             <br />
@@ -98,11 +95,7 @@ function Contact() {
                     </a>
                 </motion.div>
 
-
-                {/* ─────────────────────────────────────
-        Social links — 50%
-    ───────────────────────────────────── */}
-
+                {/* Social links */}
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -150,7 +143,6 @@ function Contact() {
                             <FiArrowUpRight className="text-xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:translate-x-2" />
                         </a>
 
-
                         {/* GitHub */}
                         <a
                             href="https://github.com/prabhatjaidiya"
@@ -174,7 +166,6 @@ function Contact() {
 
                             <FiArrowUpRight className="text-xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:translate-x-2" />
                         </a>
-
 
                         {/* LinkedIn */}
                         <a
@@ -204,7 +195,6 @@ function Contact() {
                 </motion.div>
 
             </div>
-
 
             {/* Bottom line */}
             <div className="mt-20 border-t border-white/10 pt-5">

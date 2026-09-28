@@ -80,7 +80,7 @@ function Hero() {
         <section
             ref={heroRef}
             id="home"
-            className="relative flex xl:h-screen items-end overflow-hidden px-5 pt-28 sm:px-6 lg:px-10"
+            className="relative flex items-end overflow-hidden px-5 pt-28 sm:px-6 lg:px-10 xl:h-screen"
         >
 
             {/* ─────────────────────────────────────
@@ -94,8 +94,7 @@ function Hero() {
                     rotate: avatarRotate,
                     opacity: avatarOpacity,
                 }}
-                className="pointer-events-none absolute right-[-5%] top-[8%] z-[1] w-[55vw] max-w-[500px] sm:right-[-2%] sm:w-[50vw] lg:right-[2%] lg:top-[5%] lg:w-[38vw] lg:max-w-[650px]
-"
+                className="pointer-events-none absolute right-[-5%] top-[8%] z-[1] w-[55vw] max-w-[500px] sm:right-[-2%] sm:w-[50vw] lg:right-[2%] lg:top-[5%] lg:w-[38vw] lg:max-w-[650px]"
             >
                 <motion.img
                     src={bitmoji}
@@ -113,7 +112,6 @@ function Hero() {
                 />
             </motion.div>
 
-
             {/* ─────────────────────────────────────
                 Hero content
             ───────────────────────────────────── */}
@@ -128,16 +126,14 @@ function Hero() {
                         opacity: titleOpacity,
                     }}
                     className="
-    relative z-10 overflow-hidden
-    text-[12vw]
-    font-semibold
-    leading-[0.78]
-    tracking-[-0.07em]
-
-    sm:text-[12vw]
-
-    lg:text-[13vw]
-"
+                        relative z-10 overflow-hidden
+                        text-[12vw]
+                        font-semibold
+                        leading-[0.78]
+                        tracking-[-0.07em]
+                        sm:text-[12vw]
+                        lg:text-[13vw]
+                    "
                 >
                     {/* First name */}
                     <motion.span
@@ -176,23 +172,20 @@ function Hero() {
                     >
                         <p
                             className="
-        whitespace-nowrap
-        text-[4.2vw]
-        font-medium
-        leading-none
-        tracking-[-0.025em]
-        text-white/50
-
-        sm:text-[4.5vw]
-
-        lg:text-[2.5vw]
-    "
+                                whitespace-nowrap
+                                text-[4.2vw]
+                                font-medium
+                                leading-none
+                                tracking-[-0.025em]
+                                text-white/50
+                                sm:text-[4.5vw]
+                                lg:text-[2.5vw]
+                            "
                         >
-                            FRONTEND DEVELOPER
+                            FULL-STACK DEVELOPER
                         </p>
                     </motion.div>
                 </motion.h1>
-
 
                 {/* Bottom information */}
                 <motion.div
@@ -218,10 +211,9 @@ function Hero() {
                         </p>
 
                         <p className="mt-2 text-xs text-white/20">
-                            Available for frontend opportunities
+                            Open to full-stack opportunities
                         </p>
                     </div>
-
 
                     <a
                         href="#work"
@@ -237,7 +229,6 @@ function Hero() {
                 </motion.div>
 
             </div>
-
 
             {/* ─────────────────────────────────────
                 Scroll indicator

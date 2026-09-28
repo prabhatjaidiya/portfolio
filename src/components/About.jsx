@@ -1,13 +1,15 @@
-
 import { motion } from 'motion/react'
 
 const focusAreas = [
     'React',
     'JavaScript',
-    'Tailwind CSS',
-    'REST APIs',
+    'TypeScript',
     'Node.js',
+    'Express',
+    'MongoDB',
+    'REST APIs',
     'Full-Stack Development',
+    'AI',
 ]
 
 function About() {
@@ -27,6 +29,7 @@ function About() {
 
                     {/* LEFT — Statement */}
                     <div className="lg:col-span-7">
+
                         <h2 className="text-[12vw] font-medium leading-[0.85] tracking-[-0.07em] md:text-[8vw] lg:text-[7vw]">
                             I BUILD
                             <br />
@@ -37,13 +40,15 @@ function About() {
                             </span>
                         </h2>
 
-                        {/* Small supporting line */}
+                        {/* Supporting line */}
                         <p className="mt-8 max-w-md text-sm leading-7 text-white/40 md:text-base">
-                            Turning ideas into clean, responsive and
-                            interactive web experiences.
+                            Building modern, responsive and scalable web
+                            applications across the frontend and backend.
                         </p>
+
                         {/* Current Focus */}
                         <div className="mt-10 border-t border-white/10 pt-8">
+
                             <p className="mb-5 text-xs uppercase tracking-[0.2em] text-white/30">
                                 Currently Exploring
                             </p>
@@ -79,17 +84,18 @@ function About() {
 
                             {/* Introduction */}
                             <p className="text-lg leading-8 text-white/70 md:text-xl">
-                                I'm Prabhat, a frontend developer
-                                passionate about building modern,
-                                user-friendly digital experiences
-                                with React and JavaScript.
+                                I'm Prabhat, a full-stack developer focused
+                                on building modern, user-friendly and scalable
+                                web applications with React, TypeScript,
+                                Node.js and MongoDB.
                             </p>
 
                             <p className="mt-6 text-base leading-7 text-white/45">
-                                I'm studying Mathematical Science
-                                at Delhi University and expanding
-                                my skills in backend development
-                                to build complete web applications.
+                                I'm studying Mathematical Science at Delhi
+                                University while continuously expanding my
+                                skills across frontend development, backend
+                                engineering, databases and AI-powered
+                                applications.
                             </p>
 
                             {/* Divider */}
@@ -113,7 +119,7 @@ function About() {
                                         number: '02',
                                         title: 'Build',
                                         description:
-                                            'Create clean, responsive and reusable interfaces.',
+                                            'Create clean, responsive and maintainable applications.',
                                     },
                                     {
                                         number: '03',
@@ -141,6 +147,7 @@ function About() {
                                         </div>
                                     </div>
                                 ))}
+
                             </div>
 
                         </div>
