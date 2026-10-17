@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Preloader, { hasSeenPreloader } from './components/Preloader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -15,9 +17,10 @@ function App() {
     <div className="relative min-h-screen bg-[#0a0a0a] text-white">
       <GlobalGlow />
 
+      <Preloader />
+
       <div className="relative z-10">
         <CustomCursor />
-
         <Navbar />
 
         <main>

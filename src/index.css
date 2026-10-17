@@ -63,3 +63,9 @@ body {
     opacity: 1;
   }
 }
+
+.handwritten-greeting {
+    font-family: "Caveat", cursive;
+    font-size: 108px;
+    font-weight: 500;
+}
