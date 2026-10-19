@@ -2,17 +2,20 @@ import { motion } from 'motion/react'
 import expenseTrackerImage from '../assets/projects/expense-tracker/desktop.png'
 import jobTrackerImage from '../assets/projects/job-tracker/desktop.png'
 import weatherImage from '../assets/projects/weather/desktop.webp'
+import prabhatAIImage from '../assets/projects/prabhat-ai/desktop.png'
 import ProjectPreview from './ProjectPreview'
 
 function ProjectCard({ project }) {
     const image =
-    project.image === 'expense-tracker'
-        ? expenseTrackerImage
-        : project.image === 'job-tracker'
-            ? jobTrackerImage
-            : project.image === 'weather'
-                ? weatherImage
-                : null
+        project.image === 'expense-tracker'
+            ? expenseTrackerImage
+            : project.image === 'job-tracker'
+                ? jobTrackerImage
+                : project.image === 'weather'
+                    ? weatherImage
+                    : project.image === 'prabhat-ai'
+                        ? prabhatAIImage
+                        : null
 
     const isFeatured = project.number === '01'
 

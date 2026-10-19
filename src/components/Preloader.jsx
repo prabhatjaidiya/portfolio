@@ -6,7 +6,7 @@ gsap.registerPlugin(useGSAP);
 
 const STORAGE_KEY = "portfolio-preloader-seen";
 
-export function hasSeenPreloader() {
+function hasSeenPreloader() {
     try {
         return sessionStorage.getItem(STORAGE_KEY) === "true";
     } catch {
