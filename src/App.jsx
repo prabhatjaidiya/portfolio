@@ -16,10 +16,10 @@ function App() {
     return (
         <SmoothScroll>
           <div className="relative min-h-screen bg-[#0a0a0a] text-white">
-                <GlobalGlow />
                 <Preloader />
 
                 <div className="relative z-10">
+                    <GlobalGlow />
                     <CustomCursor />
                     <Navbar />
 

@@ -42,11 +42,15 @@ body::before {
   z-index: 9999;
   opacity: 0.025;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.5) 1px,
-      transparent 1px),
-    linear-gradient(90deg,
+    linear-gradient(
       rgba(255, 255, 255, 0.5) 1px,
-      transparent 1px);
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    );
   background-size: 80px 80px;
 }
 
@@ -65,7 +69,156 @@ body {
 }
 
 .handwritten-greeting {
-    font-family: "Caveat", cursive;
-    font-size: 108px;
-    font-weight: 500;
+  font-family: "Caveat", cursive;
+  font-size: 108px;
+  font-weight: 500;
+}
+
+/* ========================================
+   PROJECTS — SCROLL-DRIVEN 3D CAROUSEL
+======================================== */
+
+#work.project-scroll-section {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  background: #f5f4f0;
+  color: #171714;
+}
+
+#work .project-scroll-sticky {
+  position: sticky;
+  top: 0;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  perspective: 1500px;
+  perspective-origin: 50% 40%;
+}
+
+#work .project-gallery-heading {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+  background: #f5f4f0;
+}
+
+#work .project-gallery {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1500px;
+  perspective-origin: 50% 45%;
+  transform-style: preserve-3d;
+}
+
+#work .project-gallery__track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: none !important;
+}
+
+#work .project-gallery__item {
+  position: relative;
+  flex-shrink: 0;
+  min-width: 0;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  transition: filter 450ms ease;
+  pointer-events: auto;
+}
+
+#work .project-gallery__item:hover {
+  z-index: 5;
+  filter: drop-shadow(0 18px 22px rgb(0 0 0 / 10%));
+}
+
+#work .project-card {
+  width: 100%;
+  min-width: 0;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+#work .project-card__visual {
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  border: 1px solid rgb(0 0 0 / 6%);
+  border-radius: 14px;
+  background: #e8e5de;
+  box-shadow: 0 14px 35px rgb(25 22 16 / 8%);
+}
+
+#work .project-card__visual img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+#work .project-card__visual .aspect-\[4\/3\] {
+  min-height: 220px;
+  overflow: hidden;
+}
+
+#work .project-gallery-footer {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+  background: #f5f4f0;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  #work .project-scroll-sticky {
+    perspective: 1000px;
+  }
+
+  #work .project-gallery__item {
+    transition: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  #work .project-gallery__item .project-card__visual {
+    border-radius: 12px;
+  }
+
+  #work .project-card__visual .aspect-\[4\/3\] {
+    min-height: 190px;
+  }
+}
+
+/* Short viewports */
+@media (max-height: 750px) {
+  #work .project-gallery-heading {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  #work .project-gallery__item,
+  #work .project-card,
+  #work .project-card__visual,
+  #work .project-card__visual img {
+    scroll-behavior: auto;
+    transition: none !important;
+    animation: none !important;
+  }
 }

@@ -18,14 +18,19 @@ function SmoothScroll({ children }) {
             ScrollTrigger.update()
         }
 
-        lenis.on('scroll', updateScrollTrigger)
-
         const updateLenis = (time) => {
             lenis.raf(time * 1000)
         }
 
+        lenis.on('scroll', updateScrollTrigger)
+
         gsap.ticker.add(updateLenis)
         gsap.ticker.lagSmoothing(0)
+
+        // Recalculate page positions after layout has settled.
+        requestAnimationFrame(() => {
+            ScrollTrigger.refresh()
+        })
 
         return () => {
             lenis.off('scroll', updateScrollTrigger)

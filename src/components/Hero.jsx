@@ -26,12 +26,12 @@ function Hero() {
         <section
             ref={heroRef}
             id="home"
-            className="relative flex xl:min-h-[100svh] flex-col justify-end overflow-hidden px-5 pt-28 xl:px-10 xl:pb-10"
+            className="relative flex flex-col justify-end overflow-hidden bg-[#f5f4f0] px-5 pt-28 text-[#171714] xl:px-10 xl:pb-10"
         >
-            {/* Ambient lime glow */}
+            {/* Subtle forest-green ambient glow */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute right-[5%] top-[10%] -z-10 h-56 w-56 rounded-full bg-[#d7ff64]/10 blur-[90px] sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96"
+                className="pointer-events-none absolute right-[5%] top-[8%] -z-0 h-56 w-56 rounded-full bg-[#315c46]/[0.10] blur-[100px] sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96"
             />
 
             {/* Bitmoji */}
@@ -118,7 +118,7 @@ function Hero() {
                                 lg:text-[clamp(8rem,12vw,12rem)]
                             "
                         >
-                            JAIDIYA<span className="text-[#d7ff64]">.</span>
+                            JAIDIYA<span className="text-[#315c46]">.</span>
                         </motion.h1>
                     </div>
 
@@ -130,7 +130,7 @@ function Hero() {
                         }}
                         className="mt-3 sm:mt-4 lg:mt-5"
                     >
-                        <p className="whitespace-nowrap text-[clamp(0.75rem,2.5vw,1.7rem)] font-medium leading-none tracking-[-0.025em] text-white/50">
+                        <p className="whitespace-nowrap text-[clamp(0.75rem,2.5vw,1.7rem)] font-medium leading-none tracking-[-0.025em] text-[#171714]/55">
                             FULL-STACK DEVELOPER
                         </p>
                     </motion.div>
@@ -142,23 +142,25 @@ function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
-                    className="relative z-10 mt-6 flex flex-col gap-5 border-t border-white/10 pt-4 sm:mt-7 sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:pt-5 lg:mt-8"
+                    className="relative z-10 mt-6 flex flex-col gap-5 border-t border-[#171714]/15 pt-4 sm:mt-7 sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:pt-5 lg:mt-8"
                 >
                     <div>
-                        <p className="text-[10px] uppercase tracking-[0.16em] text-white/40 sm:text-xs sm:tracking-[0.2em]">
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-[#171714]/55 sm:text-xs sm:tracking-[0.2em]">
                             Based in Delhi, India
                         </p>
-                        <p className="mt-2 text-xs text-white/30">
+
+                        <p className="mt-2 text-xs text-[#171714]/45">
                             Building thoughtful digital experiences.
                         </p>
                     </div>
 
                     <a
                         href="#work"
-                        className="group flex w-fit items-center gap-3 border-b border-white/20 pb-2 text-[10px] uppercase tracking-[0.14em] transition-colors hover:border-[#d7ff64] sm:text-xs sm:tracking-[0.18em]"
+                        className="group flex w-fit items-center gap-3 border-b border-[#171714]/25 pb-2 text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:border-[#315c46] sm:text-xs sm:tracking-[0.18em]"
                     >
                         Explore selected work
-                        <span className="text-[#d7ff64] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+
+                        <span className="text-[#315c46] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                             ↗
                         </span>
                     </a>
@@ -172,7 +174,7 @@ function Hero() {
                 transition={{ duration: 0.8, delay: 1.4 }}
                 className="pointer-events-none absolute bottom-24 right-5 hidden flex-col items-center gap-3 lg:flex lg:right-10"
             >
-                <span className="text-[9px] uppercase tracking-[0.22em] text-white/35 [writing-mode:vertical-rl]">
+                <span className="text-[9px] uppercase tracking-[0.22em] text-[#171714]/45 [writing-mode:vertical-rl]">
                     Scroll to explore
                 </span>
 
@@ -183,7 +185,7 @@ function Hero() {
                         repeat: Infinity,
                         ease: 'easeInOut',
                     }}
-                    className="h-12 w-px origin-top bg-[#d7ff64]/60"
+                    className="h-12 w-px origin-top bg-[#315c46]/65"
                 />
             </motion.div>
         </section>

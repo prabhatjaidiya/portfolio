@@ -18,313 +18,133 @@ function ProjectCard({ project }) {
                         : null
 
     const isFeatured = project.number === '01'
+    const isLive = project.liveUrl !== '#'
+    const hasGithub = project.githubUrl !== '#'
+
+    // Keep descriptions compact for the carousel.
+    const shortDescriptions = {
+        '01': 'A personal AI agent that answers questions about my background, projects, skills, and learning journey.',
+        '02': 'A full-stack platform to organize job applications, track progress, and manage your job search.',
+        '03': 'A personal finance dashboard to track expenses, manage budgets, and understand spending patterns.',
+        '04': 'A responsive weather app delivering current conditions and forecasts for your location.',
+        '05': 'A full-stack e-commerce platform with product discovery, cart, checkout, and order management.',
+        '06': 'A collaborative workspace for managing projects, tasks, and team discussions in real time.',
+        '07': 'A real-time messaging app with private conversations, group chats, and online presence.',
+    }
+
+    const description =
+        shortDescriptions[project.number] ||
+        project.description
 
     return (
         <motion.article
-            initial={{
-                opacity: 0,
-                y: 60,
-            }}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-            }}
-            viewport={{
-                once: true,
-                amount: 0.15,
-            }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{
-                duration: 0.8,
+                duration: 0.6,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="group min-w-0"
+            className="project-card group min-w-0"
         >
             {/* Project preview */}
-            <a
-                href={project.liveUrl === '#' ? undefined : project.liveUrl}
-                target={project.liveUrl === '#' ? undefined : '_blank'}
-                rel={
-                    project.liveUrl === '#'
-                        ? undefined
-                        : 'noopener noreferrer'
-                }
-                data-cursor="view"
-                aria-label={
-                    project.liveUrl === '#'
-                        ? `${project.title} is currently in development`
-                        : `View ${project.title} live project`
-                }
-                className={`
-                    relative block
-                    overflow-hidden
-                    rounded-sm
-                    bg-[#080808]
-                    border border-white/10
-                    transition-all duration-700
-                    group-hover:border-white/20
-                    ${project.liveUrl === '#' ? 'cursor-default' : ''}
-                `}
-            >
-                {/* Image */}
-                <motion.div
-                    className="relative overflow-hidden"
-                    whileHover={{
-                        scale: 1.015,
-                    }}
-                    transition={{
-                        duration: 0.8,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
+            <div className="relative">
+                <a
+                    href={isLive ? project.liveUrl : undefined}
+                    target={isLive ? '_blank' : undefined}
+                    rel={isLive ? 'noopener noreferrer' : undefined}
+                    data-cursor={isLive ? 'view' : undefined}
+                    aria-label={
+                        isLive
+                            ? `View ${project.title} live demo`
+                            : `${project.title} is not live yet`
+                    }
+                    className={`project-card__visual relative block overflow-hidden rounded-2xl bg-[#e8e5de] shadow-[0_12px_35px_rgba(25,22,16,0.08)] transition-shadow duration-500 group-hover:shadow-[0_20px_50px_rgba(25,22,16,0.15)] ${isLive ? 'cursor-pointer' : 'cursor-default'
+                        }`}
                 >
-                    {image ? (
-                        <img
-                            src={image}
-                            alt={`${project.title} project preview`}
-                            className="
-                                h-auto
-                                w-full
-                                object-contain
-                                transition-transform
-                                duration-1000
-                                ease-[cubic-bezier(0.22,1,0.36,1)]
-                                group-hover:scale-[1.04]
-                            "
-                        />
-                    ) : (
-                        <div className="aspect-[16/10]">
-                            <ProjectPreview type={project.image} />
-                        </div>
-                    )}
+                    <motion.div
+                        className="relative"
+                        whileHover={{ scale: 1.025 }}
+                        transition={{
+                            duration: 0.6,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                    >
+                        {image ? (
+                            <img
+                                src={image}
+                                alt={`${project.title} project preview`}
+                                loading="lazy"
+                                className="block h-auto w-full object-contain"
+                            />
+                        ) : (
+                            <div className="aspect-[4/3]">
+                                <ProjectPreview type={project.image} />
+                            </div>
+                        )}
+                    </motion.div>
 
-                    {/* Dark hover layer */}
-                    <div
-                        className="
-                            absolute inset-0
-                            bg-black/0
-                            transition-all
-                            duration-700
-                            group-hover:bg-black/20
-                        "
-                    />
+                    {/* Subtle image overlay */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
 
-                    {/* Center action */}
-                    {project.liveUrl !== '#' && (
-                        <div
-                            className="
-                                absolute inset-0
-                                flex items-center justify-center
-                            "
-                        >
-                            <span
-                                className="
-                                    translate-y-6
-                                    scale-95
-                                    border border-white/20
-                                    bg-black/40
-                                    px-6 py-4
-                                    text-[10px]
-                                    uppercase
-                                    tracking-[0.2em]
-                                    opacity-0
-                                    backdrop-blur-md
-                                    transition-all
-                                    duration-700
-                                    group-hover:translate-y-0
-                                    group-hover:scale-100
-                                    group-hover:opacity-100
-                                "
-                            >
-                                View Project ↗
-                            </span>
-                        </div>
-                    )}
+                    {/* Project number */}
+                    <div className="pointer-events-none absolute inset-x-3 top-3 flex items-center justify-between sm:inset-x-4 sm:top-4">
+                        <span className="rounded-full border border-white/35 bg-black/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em] text-white backdrop-blur-md">
+                            No. {project.number}
+                        </span>
 
-                    {/* Top metadata */}
-                    <div className="absolute left-5 right-5 top-5 flex items-start justify-between">
-                        <div className="flex items-center gap-3">
-                            <span className="text-[10px] tracking-[0.15em] text-white/60">
-                                {project.number}
-                            </span>
-
-                            {isFeatured && (
-                                <span
-                                    className="
-                                        border border-white/20
-                                        bg-black/40
-                                        px-3 py-1
-                                        text-[9px]
-                                        uppercase
-                                        tracking-[0.2em]
-                                        text-white/60
-                                        backdrop-blur-md
-                                    "
-                                >
-                                    Featured
-                                </span>
-                            )}
-                        </div>
-
-                        <span
-                            className={`
-                                border
-                                px-3 py-1
-                                text-[9px]
-                                uppercase
-                                tracking-[0.15em]
-                                backdrop-blur-md
-                                ${project.status === 'LIVE'
-                                    ? 'border-white/20 bg-black/40 text-white/60'
-                                    : 'border-white/10 bg-black/30 text-white/30'
-                                }
-                            `}
-                        >
+                        <span className="rounded-full border border-white/30 bg-black/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] text-white backdrop-blur-md">
                             {project.status}
                         </span>
                     </div>
-                </motion.div>
 
-            </a>
+                    {isFeatured && (
+                        <span className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-[#f5f4f0] px-3 py-1.5 text-[9px] uppercase tracking-[0.12em] text-[#171714] sm:bottom-4 sm:left-4">
+                            Featured Project
+                        </span>
+                    )}
 
+                    {isLive && (
+                        <span className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-[#f5f4f0] text-lg text-[#171714] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-4 sm:right-4">
+                            ↗
+                        </span>
+                    )}
+                </a>
+            </div>
 
-            {/* Project information */}
-            <div className="mt-5 min-w-0 md:mt-6">
-
-                {/* Category */}
-                <div className="mb-3 flex min-w-0 items-center gap-3">
-                    <span className="h-px w-6 shrink-0 bg-white/20" />
-
-                    <span className="truncate text-[10px] uppercase tracking-[0.2em] text-white/40">
-                        {project.category}
-                    </span>
-                </div>
-
-
-                {/* Title */}
-                <h3
-                    className="
-                        text-2xl
-                        font-medium
-                        tracking-tight
-                        transition-transform
-                        duration-500
-                        group-hover:translate-x-1
-                        sm:text-3xl
-                        md:text-4xl
-                    "
-                >
+            {/* Compact project information */}
+            <div className="px-1 pb-2 pt-4 sm:pt-5">
+                <h3 className="text-xl font-medium leading-tight tracking-[-0.04em] text-[#171714] sm:text-2xl md:text-3xl">
                     {project.title}
                 </h3>
 
+                <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#68645d]">
+                    {description}
+                </p>
 
-                {/* Description + links */}
-                <div className="mt-4 flex min-w-0 flex-col gap-5">
+                {/* Only the two project links */}
+                <div className="mt-4 flex flex-wrap items-center gap-2">
+                    {isLive && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-[#171714]/15 bg-[#171714] px-4 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white transition-all duration-300 hover:border-[#171714] hover:bg-[#171714]/80"
+                        >
+                            Live Demo <span>↗</span>
+                        </a>
+                    )}
 
-                    <p className="max-w-xl text-sm leading-7 text-white/40">
-                        {project.description}
-                    </p>
-
-
-                    {/* Technologies */}
-                    <div className="flex min-w-0 flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                            <span
-                                key={tech}
-                                className="
-                                    border
-                                    border-white/10
-                                    px-3 py-2
-                                    text-[10px]
-                                    uppercase
-                                    tracking-[0.08em]
-                                    text-white/40
-                                    transition-all
-                                    duration-300
-                                    hover:border-white/25
-                                    hover:text-white/70
-                                "
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-
-
-                    {/* Buttons */}
-                    <div className="flex w-full gap-2 sm:w-auto sm:max-w-sm">
-
-                        {project.liveUrl !== '#' && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-                                    group/link
-                                    flex
-                                    min-w-0
-                                    flex-1
-                                    items-center
-                                    justify-center
-                                    gap-2
-                                    whitespace-nowrap
-                                    border
-                                    border-white/20
-                                    px-4 py-3
-                                    text-[10px]
-                                    uppercase
-                                    tracking-[0.15em]
-                                    transition-all
-                                    duration-300
-                                    hover:bg-white
-                                    hover:text-black
-                                    sm:flex-none
-                                "
-                            >
-                                Live Demo
-
-                                <span className="transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1">
-                                    ↗
-                                </span>
-                            </a>
-                        )}
-
-                        {project.githubUrl !== '#' && (
-                            <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-                                    group/link
-                                    flex
-                                    min-w-0
-                                    flex-1
-                                    items-center
-                                    justify-center
-                                    gap-2
-                                    whitespace-nowrap
-                                    border
-                                    border-white/10
-                                    px-4 py-3
-                                    text-[10px]
-                                    uppercase
-                                    tracking-[0.15em]
-                                    text-white/50
-                                    transition-all
-                                    duration-300
-                                    hover:border-white/30
-                                    hover:text-white
-                                    sm:flex-none
-                                "
-                            >
-                                GitHub
-
-                                <span className="transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1">
-                                    ↗
-                                </span>
-                            </a>
-                        )}
-
-                    </div>
-
+                    {hasGithub && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-black/15 px-4 py-2.5 text-[10px] uppercase tracking-[0.1em] text-[#393630] transition-colors duration-300 hover:border-black/40 hover:bg-black/5"
+                        >
+                            GitHub <span>↗</span>
+                        </a>
+                    )}
                 </div>
             </div>
         </motion.article>

@@ -1,271 +1,216 @@
+import { useLayoutEffect, useRef } from 'react'
 import { motion } from 'motion/react'
+import gsap from 'gsap'
 
 const skillGroups = [
     {
         title: 'Frontend',
-        description:
-            'Technologies I use to build responsive, interactive and modern web interfaces.',
         skills: [
-            {
-                name: 'HTML',
-                logo: '/skills/html.png',
-                level: 'Core',
-            },
-            {
-                name: 'CSS',
-                logo: '/skills/css.png',
-                level: 'Core',
-            },
-            {
-                name: 'JavaScript',
-                logo: '/skills/javascript.png',
-                level: 'Core',
-            },
-            {
-                name: 'React',
-                logo: '/skills/react.png',
-                level: 'Core',
-            },
-            {
-                name: 'Tailwind CSS',
-                logo: '/skills/tailwind.png',
-                level: 'Core',
-            },
+            { name: 'HTML', logo: '/skills/html.png', level: 'Core' },
+            { name: 'CSS', logo: '/skills/css.png', level: 'Core' },
+            { name: 'JavaScript', logo: '/skills/javascript.png', level: 'Core' },
+            { name: 'React', logo: '/skills/react.png', level: 'Core' },
+            { name: 'Tailwind CSS', logo: '/skills/tailwind.png', level: 'Core' },
         ],
     },
-
     {
         title: 'Backend',
-        description:
-            'Technologies I use to build server-side applications, APIs and backend services.',
         skills: [
-            {
-                name: 'Node.js',
-                logo: '/skills/node.png',
-                level: 'Core',
-            },
-            {
-                name: 'Express',
-                logo: '/skills/express.png',
-                level: 'Core',
-            },
-            {
-                name: 'TypeScript',
-                logo: '/skills/typescript.png',
-                level: 'Core',
-            },
-            {
-                name: 'REST APIs',
-                logo: '/skills/api.png',
-                level: 'Core',
-            },
+            { name: 'Node.js', logo: '/skills/node.png', level: 'Core' },
+            { name: 'Express', logo: '/skills/express.png', level: 'Core' },
+            { name: 'TypeScript', logo: '/skills/typescript.png', level: 'Core' },
+            { name: 'REST APIs', logo: '/skills/api.png', level: 'Core' },
         ],
     },
-
     {
         title: 'Database & APIs',
-        description:
-            'Technologies I use to store, manage and work with application data.',
         skills: [
-            {
-                name: 'MongoDB',
-                logo: '/skills/mongodb.png',
-                level: 'Core',
-            },
-            {
-                name: 'Mongoose',
-                logo: '/skills/mongodb.png',
-                level: 'Core',
-            },
-            {
-                name: 'PostgreSQL',
-                logo: '/skills/postgresql.png',
-                level: 'Learning',
-            },
+            { name: 'MongoDB', logo: '/skills/mongodb.png', level: 'Core' },
+            { name: 'Mongoose', logo: '/skills/mongodb.png', level: 'Core' },
+            { name: 'PostgreSQL', logo: '/skills/postgresql.png', level: 'Learning' },
         ],
     },
-
     {
         title: 'Tools & Workflow',
-        description:
-            'Tools I use for development, version control, project setup and deployment workflows.',
         skills: [
-            {
-                name: 'Git',
-                logo: '/skills/git.png',
-                level: 'Core',
-            },
-            {
-                name: 'GitHub',
-                logo: '/skills/github.png',
-                level: 'Core',
-            },
-            {
-                name: 'Vite',
-                logo: '/skills/vite.png',
-                level: 'Core',
-            },
+            { name: 'Git', logo: '/skills/git.png', level: 'Core' },
+            { name: 'GitHub', logo: '/skills/github.png', level: 'Core' },
+            { name: 'Vite', logo: '/skills/vite.png', level: 'Core' },
         ],
     },
 ]
 
-function Skills() {
+const skills = [...skillGroups].reverse().flatMap((group) =>
+    [...group.skills].reverse().map((skill) => ({
+        ...skill,
+        group: group.title,
+    }))
+)
+
+function SkillCard({ skill, index }) {
     return (
-        <div className="relative min-h-screen bg-transparent px-6 py-10 text-white md:px-10">
+        <motion.article
+            whileHover={{ y: -7 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="group relative flex h-[270px] w-[225px] shrink-0 flex-col overflow-hidden border border-[#171714]/15 bg-[#EAE8E1] p-5 transition-colors duration-500 hover:border-[#171714]/35 hover:bg-[#E2DFD6] sm:h-[300px] sm:w-[255px] sm:p-6"
+        >
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full border border-[#171714]/[0.08] transition-transform duration-700 group-hover:scale-125" />
 
-            {/* Header */}
-            <section
-                id='skills'
-                className="mb-32"
-            >
-                <p className="mb-6 text-xs uppercase tracking-[0.2em] text-white/40">
-                    05 — Skills
-                </p>
+            <div className="pointer-events-none absolute -right-3 -top-3 h-16 w-16 rounded-full border border-[#171714]/[0.08]" />
 
-                <div className="border-t border-white/10 pt-8">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 80 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{
-                            duration: 1,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="max-w-6xl text-[16vw] font-medium leading-[0.78] tracking-[-0.08em] md:text-[10vw]"
-                    >
-                        WHAT I
-                        <br />
-                        WORK WITH.
-                    </motion.h1>
+            <div className="relative flex items-center justify-between">
+                <span className="text-[9px] uppercase tracking-[0.22em] text-[#171714]/45">
+                    Skill / {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.18em] text-[#171714]/50">
+                    {skill.level}
+                </span>
+            </div>
+
+            <div className="relative my-auto flex flex-col items-start">
+                <div className="mb-6 flex h-[94px] w-[94px] items-center justify-center border border-[#171714]/10 bg-[#F5F4F0] transition-all duration-500 group-hover:border-[#171714]/25 group-hover:bg-[#F8F7F3] sm:h-[104px] sm:w-[104px]">
+                    <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        loading="lazy"
+                        className="h-12 w-12 object-contain opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 sm:h-14 sm:w-14"
+                    />
                 </div>
 
-                <p className="mt-10 max-w-xl text-sm leading-7 text-white/40 md:text-base">
-                    A collection of technologies and tools I use to build modern full-stack applications, from responsive interfaces and APIs to databases and backend services.
+                <p className="mb-2 text-[9px] uppercase tracking-[0.2em] text-[#171714]/45">
+                    {skill.group}
                 </p>
-            </section>
 
-            {/* Skill groups */}
-            <div className="space-y-32">
-                {skillGroups.map((group, groupIndex) => (
-                    <section key={group.title}>
-
-                        {/* Group heading */}
-                        <div className="mb-10 grid gap-6 border-b border-white/10 pb-6 md:grid-cols-12 md:items-end">
-                            <div className="md:col-span-2">
-                                <span className="text-[10px] uppercase tracking-[0.2em] text-white/25">
-                                    {String(groupIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}
-                                </span>
-                            </div>
-
-                            <div className="md:col-span-5">
-                                <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
-                                    {group.title}
-                                </h2>
-                            </div>
-
-                            <p className="text-sm leading-7 text-white/40 md:col-span-4 md:col-start-8">
-                                {group.description}
-                            </p>
-                        </div>
-
-                        {/* Skill cards */}
-                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                            {group.skills.map((skill, index) => (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{
-                                        opacity: 0,
-                                        y: 40,
-                                    }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        y: 0,
-                                    }}
-                                    viewport={{
-                                        once: true,
-                                        amount: 0.2,
-                                    }}
-                                    transition={{
-                                        duration: 0.6,
-                                        delay: index * 0.08,
-                                        ease: [0.22, 1, 0.36, 1],
-                                    }}
-                                    whileHover={{
-                                        y: -14,
-                                        scale: 1.025,
-                                        transition: {
-                                            duration: 0.3,
-                                            ease: [0.22, 1, 0.36, 1],
-                                        },
-                                    }}
-                                    className=" group relative flex min-h-[230px] flex-col overflow-hidden border border-white/10 bg-white/[0.015] p-5 transition-all duration-300 ease-out hover:border-white/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_rgba(0,0,0,0.45)] md:min-h-[260px] md:p-6"
-                                >
-                                    {/* Card number */}
-                                    <span
-                                        className="absolute left-5 top-5 text-[9px] uppercase tracking-[0.2em] text-white/20 transition-all duration-300 group-hover:text-white/50"
-                                    >
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-
-                                    {/* Skill level */}
-                                    <span
-                                        className="absolute right-5 top-5 text-[9px] uppercase tracking-[0.15em] text-white/20 transition-all duration-300 group-hover:text-white/50"
-                                    >
-                                        {skill.level}
-                                    </span>
-
-                                    {/* Logo area */}
-                                    <div className="relative flex flex-1 items-center justify-center">
-
-                                        {/* Logo glow */}
-                                        <div
-                                            className="absolute h-28 w-28 rounded-full bg-white/[0.06] opacity-0 blur-3xl transition-all duration-500 group-hover:scale-[1.8] group-hover:opacity-100"
-                                        />
-
-                                        {/* Logo */}
-                                        <motion.img
-                                            src={skill.logo}
-                                            alt={`${skill.name} logo`}
-                                            whileHover={{
-                                                scale: 1.18,
-                                                y: -5,
-                                                rotate: 2,
-                                            }}
-                                            transition={{
-                                                duration: 0.35,
-                                                ease: [0.22, 1, 0.36, 1],
-                                            }}
-                                            className="relative z-10 h-16 w-16 object-contain opacity-75 transition-all duration-300 group-hover:opacity-100 group-hover:drop-shadow-[0_10px_25px_rgba(255,255,255,0.18)] md:h-20 md:w-20"
-                                        />
-                                    </div>
-
-                                    {/* Bottom information */}
-                                    <div
-                                        className="relative z-10 mt-auto border-t border-white/10 pt-4 text-center transition-colors duration-300 group-hover:border-white/25"
-                                    >
-                                        <h3
-                                            className="text-sm font-medium tracking-tight text-white/70 transition-all duration-300 group-hover:text-white group-hover:tracking-normal"
-                                        >
-                                            {skill.name}
-                                        </h3>
-
-                                        <p
-                                            className="mt-1 text-[9px] uppercase tracking-[0.2em] text-white/25 transition-colors duration-300 group-hover:text-white/45"
-                                        >
-                                            {skill.level === 'Core'
-                                                ? 'Currently using'
-                                                : 'Currently learning'}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                    </section>
-                ))}
+                <h3 className="text-2xl font-medium leading-tight tracking-[-0.055em] text-[#171714] sm:text-[28px]">
+                    {skill.name}
+                </h3>
             </div>
-        </div>
+
+            <div className="relative flex items-center justify-between border-t border-[#171714]/15 pt-4">
+                <span className="text-[9px] uppercase tracking-[0.18em] text-[#171714]/45">
+                    {skill.level === 'Core'
+                        ? 'In my toolkit'
+                        : 'Currently learning'}
+                </span>
+                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                </span>
+            </div>
+        </motion.article>
     )
 }
 
-export default Skills
+export default function Skills() {
+    const sectionRef = useRef(null)
+    const trackRef = useRef(null)
+    const firstSetRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const track = trackRef.current
+        const firstSet = firstSetRef.current
+
+        if (!track || !firstSet) return
+
+        const ctx = gsap.context(() => {
+            const getDistance = () => firstSet.getBoundingClientRect().width
+
+            const animation = gsap.to(track, {
+                x: () => -getDistance(),
+                duration: 34,
+                ease: 'none',
+                repeat: -1,
+                modifiers: {
+                    x: (value) => {
+                        const distance = getDistance()
+                        if (!distance) return '0px'
+
+                        const current = parseFloat(value) || 0
+                        return `${current % -distance}px`
+                    },
+                },
+            })
+
+            const refresh = () => {
+                animation.invalidate()
+                gsap.set(track, { x: 0 })
+            }
+
+            window.addEventListener('resize', refresh)
+
+            return () => {
+                window.removeEventListener('resize', refresh)
+                animation.kill()
+            }
+        }, sectionRef)
+
+        return () => ctx.revert()
+    }, [])
+
+    return (
+        <section
+            id="skills"
+            ref={sectionRef}
+            className="relative overflow-hidden bg-[#F5F4F0] py-16 text-[#171714] sm:py-20 md:py-24"
+        >
+            <header className="px-5 text-center sm:px-8">
+                <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-[#171714]/55 sm:text-xs">
+                    05 — Skills & Tools
+                </p>
+
+                <h2 className="text-4xl font-medium tracking-[-0.065em] sm:text-5xl md:text-7xl">
+                    What I work{' '}
+                    <span className="font-serif italic font-normal">
+                        with.
+                    </span>
+                </h2>
+
+                <p className="mx-auto mt-4 max-w-md text-xs leading-6 text-[#171714]/55 sm:text-sm">
+                    A selection of technologies in my development toolkit.
+                </p>
+            </header>
+
+            <div className="relative my-10 overflow-hidden py-3 sm:my-14 md:my-16">
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#F5F4F0] to-transparent sm:w-16 md:w-24" />
+
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#F5F4F0] to-transparent sm:w-16 md:w-24" />
+
+                <div
+                    ref={trackRef}
+                    className="flex w-max items-stretch"
+                    style={{ willChange: 'transform' }}
+                >
+                    <div
+                        ref={firstSetRef}
+                        className="flex shrink-0 gap-3 pr-3 sm:gap-5 sm:pr-5 md:gap-6 md:pr-6"
+                    >
+                        {skills.map((skill, index) => (
+                            <SkillCard
+                                key={skill.name}
+                                skill={skill}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+
+                    <div
+                        aria-hidden="true"
+                        className="flex shrink-0 gap-3 pr-3 sm:gap-5 sm:pr-5 md:gap-6 md:pr-6"
+                    >
+                        {skills.map((skill, index) => (
+                            <SkillCard
+                                key={`duplicate-${skill.name}`}
+                                skill={skill}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <footer className="flex items-center justify-between border-t border-[#171714]/10 px-5 pt-4 text-[9px] uppercase tracking-[0.2em] text-[#171714]/50 sm:px-8 md:px-12">
+                <span>Technologies & workflow</span>
+                <span>{String(skills.length).padStart(2, '0')} Skills</span>
+            </footer>
+        </section>
+    )
+}

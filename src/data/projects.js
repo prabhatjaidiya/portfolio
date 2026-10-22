@@ -2,7 +2,7 @@ const projects = [
   {
     number: '01',
     category: 'AI Engineering / Full-Stack',
-    title: 'Prabhat AI — Personal AI Agent',
+    title: 'Prabhat AI',
     status: 'LIVE',
     description:
       'A deployed personal AI agent that answers questions about my professional background, projects, technical skills and learning journey. Features retrieval-augmented generation (RAG), semantic search, vector embeddings, conversation memory, context-aware responses, GitHub integration, document processing and security guardrails. Built and tested end-to-end across 28 days.',
