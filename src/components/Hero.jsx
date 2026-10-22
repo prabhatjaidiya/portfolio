@@ -26,12 +26,12 @@ function Hero() {
         <section
             ref={heroRef}
             id="home"
-            className="relative flex flex-col justify-end overflow-hidden bg-[#f5f4f0] px-5 pt-28 text-[#171714] xl:px-10 xl:pb-10"
+            className="relative xl:min-h-[100vh] flex flex-col justify-end overflow-hidden bg-[#f5f4f0] px-5 pt-28 text-[#171714] xl:px-10 xl:pb-10"
         >
             {/* Subtle forest-green ambient glow */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute right-[5%] top-[8%] -z-0 h-56 w-56 rounded-full bg-[#315c46]/[0.10] blur-[100px] sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96"
+                className="pointer-events-none absolute right-[5%] top-[8%] z-0 h-56 w-56 rounded-full bg-[#315c46]/[0.10] blur-[100px] sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96"
             />
 
             {/* Bitmoji */}
