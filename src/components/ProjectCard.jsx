@@ -3,6 +3,7 @@ import expenseTrackerImage from '../assets/projects/expense-tracker/desktop.png'
 import jobTrackerImage from '../assets/projects/job-tracker/desktop.png'
 import weatherImage from '../assets/projects/weather/desktop.webp'
 import prabhatAIImage from '../assets/projects/prabhat-ai/desktop.png'
+import shopSphereImage from '../assets/projects/shopsphere/desktop.png'
 import ProjectPreview from './ProjectPreview'
 
 function ProjectCard({ project }) {
@@ -15,7 +16,9 @@ function ProjectCard({ project }) {
                     ? weatherImage
                     : project.image === 'prabhat-ai'
                         ? prabhatAIImage
-                        : null
+                        : project.image === 'ecommerce'
+                            ? shopSphereImage
+                            : null
 
     const isFeatured = project.number === '01'
     const isLive = project.liveUrl !== '#'

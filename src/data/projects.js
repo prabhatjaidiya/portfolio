@@ -32,6 +32,24 @@ const projects = [
 
   {
     number: '02',
+    category: 'E-commerce / Full-Stack',
+    title: 'ShopSphere',
+    status: 'LIVE',
+    description:
+      'A deployed full-stack e-commerce platform featuring product discovery, secure authentication, cart and wishlist management, checkout, Razorpay payment integration, order tracking, and an admin dashboard for product and order management. Built with a React and TypeScript frontend, a Node.js and Express backend, and MongoDB. Includes role-based access control, input validation, and security protections.',
+    technologies: [
+      'React', 'Vite', 'Tailwind CSS', 'React Router',
+      'TanStack Query', 'Node.js', 'Express', 'TypeScript',
+      'MongoDB', 'Mongoose', 'JWT', 'bcrypt',
+      'Razorpay', 'REST API',
+    ],
+    image: 'ecommerce',
+    liveUrl: 'https://shopsphere-coral-rho.vercel.app/',
+    githubUrl: 'https://github.com/prabhatjaidiya/shopsphere',
+  },
+
+  {
+    number: '03',
     category: 'Productivity / Full-Stack',
     title: 'Job / Internship Tracker',
     status: 'LIVE',
@@ -48,7 +66,7 @@ const projects = [
   },
 
   {
-    number: '03',
+    number: '04',
     category: 'Finance / Dashboard',
     title: 'Expense Tracker',
     status: 'LIVE',
@@ -64,7 +82,7 @@ const projects = [
   },
 
   {
-    number: '04',
+    number: '05',
     category: 'Weather / API',
     title: 'Weather App',
     status: 'LIVE',
@@ -76,24 +94,6 @@ const projects = [
     image: 'weather',
     liveUrl: 'https://weather-app-7cfd.vercel.app/',
     githubUrl: 'https://github.com/prabhatjaidiya/Weather-App',
-  },
-
-  {
-    number: '05',
-    category: 'E-commerce / Full-Stack',
-    title: 'ShopSphere — E-commerce Platform',
-    status: 'IN PROGRESS',
-    description:
-      'A full-stack e-commerce platform featuring product discovery, authentication, cart management, checkout, order tracking, payment integration and an admin dashboard for product and order management.',
-    technologies: [
-      'React', 'Vite', 'Tailwind CSS', 'React Router',
-      'TanStack Query', 'Node.js', 'Express', 'TypeScript',
-      'MongoDB', 'Mongoose', 'JWT', 'bcrypt',
-      'Cloudinary', 'Razorpay', 'REST API',
-    ],
-    image: 'ecommerce',
-    liveUrl: '#',
-    githubUrl: '#',
   },
 
   {
